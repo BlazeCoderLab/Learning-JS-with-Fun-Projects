@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper Using JS</title>
+    <style>
+        body {
+            font-family: "Geist", sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding-inline: 1.5rem;
+            margin: auto;
+        }
+        .container h2 {
+            background: #16004b;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .btns button {
+            border: 1px solid #16004b;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 22px;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+        }
+        .btns button:hover {
+            transform: scale(1.01);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Color Flipper</h2>
+        <div class="btns">
+            <button onclick="colorFlipper('green')">Green</button>
+            <button onclick="colorFlipper('red')">Red</button>
+            <button onclick="colorFlipper('blue')">Blue</button>
+            <button onclick="colorFlipper('random')">Random</button>
+        </div>
+    </div>
+
+    <!-- =========== Custom JS =========== -->
+    <script>
+        function colorFlipper(value) {    
+            if(value == "green") {
+                document.body.style.backgroundColor = "green";
+            } else if (value === "red") {
+                document.body.style.backgroundColor = "red";
+            } else if (value === "blue") {
+                document.body.style.backgroundColor = "blue";
+            } else if (value === "random") {
+                const hex1 = Math.round(Math.random() * 255); 
+                const hex2 = Math.round(Math.random() * 255); 
+                const hex3 = Math.round(Math.random() * 255); 
+
+                let randomColor = `rgb(${hex1}, ${hex2}, ${hex3})`;
+                document.body.style.backgroundColor = randomColor;
+            }
+        }
+    </script>
+</body>
+</html>
